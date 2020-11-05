@@ -11,6 +11,7 @@ body,
   height: 100vh;
   box-sizing: border-box;
   background: #2b4b6b;
+  color: #fff;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -23,7 +24,6 @@ body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd {
 	padding: 0;
 	list-style: none;
 	font-size: 0.12rem;
-	color: #fff;
 }
 
 
