@@ -12,11 +12,13 @@ import store from './store'
 import ElementUI from 'element-ui'
 import request from './untils/request.js'
 import filter from './untils/filter'
+import beforeUpload from './untils/upload'
 import './assets/css/global.css'
 import './untils/rem'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = request
+Vue.prototype.beforeUpload = beforeUpload
 Vue.use(ElementUI)
 filter.map(item => Vue.filter(item.name, item.fn))
 

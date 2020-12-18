@@ -6,8 +6,13 @@ export default {
     }
   },
   created () {
-    // 配置less上传git
   },
+  // watch: {
+  //   $route (to, from) {
+  //     this.activeIndex = to.path
+  //     sessionStorage.setItem('path', to.path)
+  //   }
+  // },
   methods: {
 
   }

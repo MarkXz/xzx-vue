@@ -35,6 +35,14 @@ img,input {
 	vertical-align: middle;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
 /* 清除浮动 */
 .clearfix::after {
   content: "";
@@ -46,6 +54,21 @@ img,input {
 }
 .clearfix {
  zoom: 1;
+}
+.title::before{
+  content: "";
+  display: inline-block;
+  width: 0.1rem;
+  height: 0.1rem;
+  background: tomato;
+  border-radius: 50%;
+  margin-right: 0.05rem;
+}
+.star::before{
+  content: "*";
+  display: inline-block;
+  color: #F56C6C;
+  margin-right: 4px;
 }
 /* .el-breadcrumb {
   margin-bottom: 15px;
