@@ -5,22 +5,25 @@
 */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { Message } from 'element-ui'
 import Home from '../components/home/Home.vue'
+import Login from '../components/login/Login.vue'
+import Index from '../components/index/index.vue'
 
 Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
-  name: 'Home',
+  name: 'home',
   redirect: '/home'
 },
-// { path: '/login', component: Login },
+{ path: '/login', component: Login },
 {
   path: '/home',
   component: Home,
-  // redirect: '/roles',
+  redirect: '/index',
   children: [
-    // { path: '/roles', component: Roles }
+    { path: '/index', component: Index },
   ]
 }
 ]
@@ -30,7 +33,17 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, form, next) => {
-  next()
+  // if (to.path === '/login') {
+    next()
+  // } else {
+  //   if (sessionStorage.getItem('token')) {
+  //     next()
+  //   } else {
+  //     Message.error('登录过期，请重新登录')
+  //     sessionStorage.clear()
+  //     router.push('/login')
+  //   }
+  // }
 })
 
 export default router

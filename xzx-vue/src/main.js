@@ -13,6 +13,7 @@ import ElementUI from 'element-ui'
 import request from './untils/request.js'
 import filter from './untils/filter'
 import beforeUpload from './untils/upload'
+import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/global.css'
 import './untils/rem'
 
