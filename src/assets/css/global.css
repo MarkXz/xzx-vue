@@ -1,0 +1,88 @@
+/*
+* @Author: xizixin
+* @Describe: Common style
+* @Date: 2018-06-22
+*/
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  background: #2b4b6b;
+  color: #fff;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 12px;
+}
+
+
+img,input {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	outline-style: none;
+	vertical-align: middle;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+.clearfix {
+ zoom: 1;
+}
+.title::before{
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: tomato;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.star::before{
+  content: "*";
+  display: inline-block;
+  color: #F56C6C;
+  margin-right: 4px;
+}
+/* .el-breadcrumb {
+  margin-bottom: 15px;
+}
+.el-card {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+.el-table {
+  font-size: 12px;
+  margin-top: 15px;
+}
+.el-pagination{
+  margin-top: 15px;
+}
+.el-step__title {
+  font-size: 12px;
+} */
