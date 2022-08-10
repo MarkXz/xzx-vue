@@ -10,17 +10,17 @@ import App from './App'
 import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
-import request from './untils/request.js'
+import globalPlugin from "./untils/global"
 import filter from './untils/filter'
-import beforeUpload from './untils/upload'
+
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/global.css'
 import './untils/rem'
+import "@/router/permission"
 
 Vue.config.productionTip = false
-Vue.prototype.$http = request
-Vue.prototype.beforeUpload = beforeUpload
 Vue.use(ElementUI)
+Vue.use(globalPlugin)
 filter.map(item => Vue.filter(item.name, item.fn))
 
 /* eslint-disable no-new */

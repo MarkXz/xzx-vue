@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
   .page404{
     width: 100%;
     height: 100%;

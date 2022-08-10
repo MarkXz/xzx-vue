@@ -1,12 +1,12 @@
 import url from '../../assets/logo.png'
 export default {
-  data () {
+  data() {
     return {
       url,
       PWchecked: false,
       ruleForm: {
-        username: '',
-        password: ''
+        username: 'xzx',
+        password: '123'
       },
       rules: {
         username: [
@@ -18,7 +18,7 @@ export default {
       }
     }
   },
-  created () {
+  created() {
     if (localStorage.getItem('userInfo')) {
       if (JSON.parse(localStorage.getItem('userInfo')).isChecked) {
         this.PWchecked = JSON.parse(localStorage.getItem('userInfo')).isChecked
@@ -30,19 +30,44 @@ export default {
     }
   },
   methods: {
-    login (formName) {
+    login(formName) {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
           // const data = await this.$http.get('user/login', {
           //   params: this.ruleForm
           // })
+
+          this.$store.dispatch("setToken", this.ruleForm.username).then(() => {
+            this.$router.push({path: "/"})
+          }).catch(res => {
+            this.$message({
+              showClose: true,
+              message: res,
+              type: "error"
+            })
+          })
+
+
+          return
           const data = await this.$http.fetchLogin({
             pageNumber: '1',
             pageSize: '5'
           })
-          return
           if (data.data.code !== '200') return this.$message.error(data.data.message)
           this.$message.success('恭喜你，登录成功')
+
+          // 将 username 设置为 token 存储在 store，仅为测试效果，实际存储 token 以后台返回为准
+          // that.$store.dispatch("setToken", that.loginForm.username).then(() => {
+          //   that.$router.push({path: "/"})
+          // }).catch(res => {
+          //   that.$message({
+          //     showClose: true,
+          //     message: res,
+          //     type: "error"
+          //   })
+          // })
+
+
           sessionStorage.setItem('token', 'Bearer ' + data.data.token)
           sessionStorage.setItem('userName', this.ruleForm.username)
           sessionStorage.setItem('userId', data.data.user_id)

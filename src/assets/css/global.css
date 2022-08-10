@@ -10,7 +10,6 @@ body,
   padding: 0;
   height: 100vh;
   box-sizing: border-box;
-  background: #2b4b6b;
   color: #fff;
 }
 #app {
@@ -23,7 +22,15 @@ body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-size: 12px;
+	font-size: 14px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 

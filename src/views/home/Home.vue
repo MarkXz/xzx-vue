@@ -1,40 +1,66 @@
 <template>
-  <el-container>
+  <!-- <el-container>
     <el-header>
       <el-row :gutter="20">
         <el-col :span="3">
-          <el-image style="width: 100%;height:60px;" :src="url" fit="scale-down"></el-image>
+          <el-image
+            style="width: 100%;height:60px;"
+            :src="url"
+            fit="scale-down"
+          ></el-image>
         </el-col>
-        <el-col :span="15">
-          <el-menu :default-active="activeIndex" class="el-menu-demo" router mode="horizontal" text-color="#fff" active-text-color="#ffd04b">
+        <el-col :span="19">
+          <el-menu
+            :default-active="activeIndex"
+            class="el-menu-demo"
+            router
+            mode="horizontal"
+            text-color="#fff"
+            active-text-color="#ffd04b"
+          >
             <el-menu-item index="/index">首页</el-menu-item>
             <el-menu-item index="/workList">任务列表</el-menu-item>
             <el-menu-item index="/profile">当前任务</el-menu-item>
-            <!-- <el-menu-item index="/yara">Yara规则</el-menu-item> -->
           </el-menu>
         </el-col>
-        <el-col :span="4">
-          <el-input placeholder="Md5" v-model="md5Val" class="input-with-select">
-            <el-button slot="append" @click="md5ModalBtn" type="primary" icon="el-icon-search"></el-button>
-          </el-input>
-        </el-col>
-        <el-col :span="2" @click.native="logout" style="font-size: 14px;text-align:right;cursor:pointer;">
+        <el-col
+          :span="2"
+          @click.native="logout"
+          style="font-size: 14px;text-align:right;cursor:pointer;"
+        >
           <i class="el-icon-switch-button"></i>
           <span>退出</span>
         </el-col>
       </el-row>
     </el-header>
     <el-main>
-      <router-view></router-view>
+      <transition name="main" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </el-main>
+  </el-container> -->
+
+  <el-container>
+    <layoutAside></layoutAside>
+    <el-container class="home_box">
+      <layoutHeader></layoutHeader>
+      <el-main id="elmain">
+        <transition name="main" mode="out-in">
+          <router-view></router-view>
+        </transition>
+      </el-main>
+      <el-footer>
+        <Bottom></Bottom>
+      </el-footer>
+    </el-container>
   </el-container>
 </template>
 
 <script>
-import mix from './Home-mixins.js'
+import mix from "./Home-mixins.js";
 export default {
   mixins: [mix]
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -45,11 +71,16 @@ export default {
   height: 60px !important;
   line-height: 60px !important;
 }
-
+.home_box {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 .el-main {
-  background-color: #e9eef3;
+  background-color: #f0f2f5;
   color: #333;
-  min-height: calc(100vh - 60px);
+  flex: 1;
+  overflow: auto;
 }
 .el-menu {
   background: transparent;
